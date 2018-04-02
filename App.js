@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import SignUpForm from './src/components/SignUpForm';
+
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>This is the front end of rn-onetime-pw</Text>
+        <SignUpForm />
       </View>
     );
   }
