@@ -12,6 +12,11 @@ class SignUpForm extends Component {
     phone: ''
   };
 
+  // helper methods (use arrow functions so it's not necessary bind the handler to 'this' context; es2017 syntax)
+  handleSignup = () => {
+
+  }
+
   // render method
   render () {
     return (
@@ -23,7 +28,10 @@ class SignUpForm extends Component {
             onChangeText={phone => this.setState({ phone })}
           />
         </View>
-        <Button title="Sign Up"/>
+        <Button
+          title="Sign Up"
+          onPress={this.handleSignup}
+        />
       </View>
     );
   }
