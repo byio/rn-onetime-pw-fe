@@ -32,9 +32,13 @@ class SignUpForm extends Component {
   render () {
     return (
       <View>
+        <View style={styles.headerTextStyle}>
+          <Text>Sign Up</Text>
+        </View>
         <View style={{ marginBottom: 10 }}>
           <FormLabel>Enter Phone Number</FormLabel>
           <FormInput
+            placeholder="e.g. 6512345678"
             value={this.state.phone}
             onChangeText={phone => this.setState({ phone })}
           />
@@ -45,6 +49,12 @@ class SignUpForm extends Component {
         />
       </View>
     );
+  }
+}
+
+const styles = {
+  headerTextStyle: {
+    alignItems: 'center'
   }
 }
 

@@ -25,18 +25,23 @@ class SignInForm extends Component {
   render () {
     return (
       <View>
+        <View style={styles.headerTextStyle}>
+          <Text>Log In</Text>
+        </View>
         {/* Phone number input */}
         <View>
           <FormLabel>Enter Phone Number</FormLabel>
           <FormInput
+            placeholder="e.g. 6512345678"
             value={this.state.phone}
             onChangeText={phone => this.setState({ phone })}
           />
         </View>
         {/* OTP code input */}
-        <View>
+        <View style={{ marginBottom: 10 }}>
           <FormLabel>Enter OTP</FormLabel>
           <FormInput
+            placeholder="e.g. 1234"
             value={this.state.code}
             onChangeText={code => this.setState({ code })}
           />
@@ -48,6 +53,12 @@ class SignInForm extends Component {
         />
       </View>
     );
+  }
+}
+
+const styles = {
+  headerTextStyle: {
+    alignItems: 'center'
   }
 }
 
