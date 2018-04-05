@@ -15,10 +15,12 @@ class SignInForm extends Component {
     const { phone, code } = this.state;
     // verify otp
     try {
-      await axios.post(`${ROOT_URL}/verifyOtp`, { phone, code });
+      let response = await axios.post(`${ROOT_URL}/verifyOtp`, { phone, code });
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
+    this.setState({ phone: '', code: '' });
   }
 
   // render method
