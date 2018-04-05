@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 import axios from 'axios';
+import firebase from 'firebase';
 
 const ROOT_URL = "https://us-central1-rn-onetime-pw.cloudfunctions.net";
 
@@ -15,8 +16,9 @@ class SignInForm extends Component {
     const { phone, code } = this.state;
     // verify otp
     try {
-      let response = await axios.post(`${ROOT_URL}/verifyOtp`, { phone, code });
-      console.log(response);
+      let { data } = await axios.post(`${ROOT_URL}/verifyOtp`, { phone, code });
+      firebase.auth()
+              .signInWithCustomToken(data.token);
     } catch (err) {
       console.log(err);
     }
